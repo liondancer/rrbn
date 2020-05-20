@@ -41,6 +41,7 @@ const App = (props: Props) => {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/(login|signup)" component={AuthenticationPage} />
         <Route exact path="/profile" component={ProfilePage} />
+        <Route exact path="/settings" component={SettingsPage} />
         <Route component={PageNotFound} />
       </Switch>
     </React.Fragment>
