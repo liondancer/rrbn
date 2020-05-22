@@ -4,6 +4,9 @@ const SettingsForm = () => {
   return (
     <form>
       <label>
+        Email: <input name="email" placeholder="email"></input>
+      </label>
+      <label>
         Password: <input name="password" placeholder="password"></input>
       </label>
       <label>

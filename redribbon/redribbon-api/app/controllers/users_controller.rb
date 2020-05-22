@@ -14,8 +14,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by(email: params[:session][:user][:email])
-    if @user.update_attributes(user_params)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
       # Handle successful update
     else
     end

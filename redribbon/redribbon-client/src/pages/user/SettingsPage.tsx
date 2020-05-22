@@ -6,12 +6,13 @@ import { AppState } from "../../redux/store/store";
 import { AppActions } from "../../types/AppActionTypes";
 import { User } from "../../types/User";
 import ProfileForm from "./ProfileForm";
+import SettingsForm from "./SettingsForm";
 
 const SettingsPage = () => {
   return (
     <React.Fragment>
       <h1>Settings Page</h1>
-      
+      <SettingsForm />
     </React.Fragment>
   );
 };

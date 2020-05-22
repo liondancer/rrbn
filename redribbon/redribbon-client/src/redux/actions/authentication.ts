@@ -185,6 +185,7 @@ export const logout = () => {
     axios
       .delete("http://localhost:3001/logout", { withCredentials: true })
       .then((response) => {
+        console.log("Logout success", response.data);
         dispatch(logoutSuccess());
       })
       .catch((error) => {});

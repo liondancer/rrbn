@@ -1,13 +1,24 @@
 import React from "react";
+import { connect } from "react-redux";
 import { RouteComponentProps, Link, withRouter } from "react-router-dom";
 import { User } from "../types/User";
+import { ThunkDispatch } from "redux-thunk";
+import { AppActions } from "../types/AppActionTypes";
+// import { logout } from "../redux/actions/authentication";
+import { bindActionCreators } from "redux";
 
-const LoggedIn = ({ email }: { email: string }) => {
+const LoggedIn = ({
+  email,
+  onClickLogout,
+}: {
+  email: string;
+  onClickLogout: any;
+}) => {
   return (
     <React.Fragment>
-      {email}
-      <Link to="/profile">Profile</Link>
-      <Link to="/settings">Settings</Link>
+      {email} |<Link to="/profile">Profile</Link> |
+      <Link to="/settings">Settings</Link> |
+      <button onClick={onClickLogout}>Logout</button>
     </React.Fragment>
   );
 };
@@ -21,13 +32,25 @@ const NotLoggedIn = () => (
 
 interface HeaderProps extends RouteComponentProps {
   user?: User;
+  logout: () => void;
 }
 
-const Header = ({ user, location }: HeaderProps) => {
+type Props = HeaderProps;
+
+const Header = ({ user, location, history, logout }: HeaderProps) => {
+  const onClickLogout = () => {
+    logout();
+    history.push("/");
+  };
+
   if (location.pathname !== "/login" && location.pathname !== "/signup") {
     return (
       <React.Fragment>
-        {user !== undefined ? <LoggedIn email={user.email} /> : <NotLoggedIn />}
+        {user !== undefined ? (
+          <LoggedIn email={user.email} onClickLogout={onClickLogout} />
+        ) : (
+          <NotLoggedIn />
+        )}
       </React.Fragment>
     );
   }

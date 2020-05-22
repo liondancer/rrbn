@@ -4,21 +4,21 @@ RSpec.describe 'UsersEdits', type: :request do
   describe 'User Edits' do
     fixtures :users
 
-    it 'PATCH /user unsuccessfull edits' do
+    it 'PATCH /user unsuccessful edits' do
       user = users(:bradford)
       patch user_path(user), user: { email: 'testemail123@gmail.com',
                                      password: 'foo',
                                      password_confirmation: 'foofoo' }
     end
 
-    it 'PATCH /user successfull edits' do
+    it 'PATCH /user successful edits' do
       user = users(:bradford)
 
-      patch user_path(user), user: { email: 'testemail123@gmail.com',
+      patch user_path(user), user: { email: 'testemail12@gmail.com',
                                      password: '',
                                      password_confirmation: '' }
       user.reload
-      expect(user.email).to eq 'testemail123@gmail.com'
+      expect(user.email).to eq 'testemail12@gmail.com'
     end
   end
 end

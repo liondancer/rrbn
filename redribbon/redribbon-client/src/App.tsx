@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router";
 import HomePage from "./pages/home/HomePage";
+import SettingsPage from "./pages/user/SettingsPage";
 import { AppState } from "./redux/store/store";
 
 import PageNotFound from "./pages/error/PageNotFound";
@@ -13,7 +14,7 @@ import AuthenticationPage from "./pages/authentication/AuthenticationPage";
 import Header from "./components/Header";
 import { AppActions } from "./types/AppActionTypes";
 import { User } from "./types/User";
-import { checkLoggedIn } from "./redux/actions/authentication";
+import { checkLoggedIn, logout } from "./redux/actions/authentication";
 import { bindActionCreators } from "redux";
 import ProfilePage from "./pages/user/ProfilePage";
 
@@ -36,7 +37,7 @@ const App = (props: Props) => {
 
   return (
     <React.Fragment>
-      <Header user={props.user} />
+      <Header user={props.user} logout={props.logout} />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/(login|signup)" component={AuthenticationPage} />
@@ -53,6 +54,7 @@ interface IMapStateToProps {
 }
 interface IMapDispatchToProps {
   checkLoggedIn: () => void;
+  logout: () => void;
 }
 
 const mapStateToProps = (
@@ -67,6 +69,7 @@ const mapDispatchToProps = (
   ownProps: AppProps
 ): IMapDispatchToProps => ({
   checkLoggedIn: bindActionCreators(checkLoggedIn, dispatch),
+  logout: bindActionCreators(logout, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
