@@ -31,7 +31,7 @@ const App = (props: Props) => {
     if (props.user === undefined) {
       props.checkLoggedIn();
     }
-  });
+  }, []);
 
   console.log("APP", window.location.pathname);
 
