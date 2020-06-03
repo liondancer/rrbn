@@ -1,5 +1,5 @@
 import React, { SyntheticEvent, useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import LoginForm from "./LoginForm";
 import LostPasswordForm from "./LostPasswordForm";
 import RegistrationForm from "./RegistrationForm";
@@ -10,7 +10,7 @@ import { login, register } from "../../redux/actions/authentication";
 import { AuthenticationActionTypes } from "../../types/Authentication";
 import { bindActionCreators } from "redux";
 import { User } from "../../types/User";
-import { RouteComponentProps } from "react-router-dom";
+import { RouteComponentProps, Redirect } from "react-router-dom";
 
 interface AuthenticationPageProps extends RouteComponentProps {
   // location: { state: string };
@@ -30,7 +30,6 @@ const AuthenticationPage = (props: Props) => {
   //   props.location.state
   // );
 
-  console.log("PROPS", props);
   const [lostPasswordState, setLostPasswordState] = useState("");
   const [registerState, setRegisterState] = useState({
     email: "",
@@ -67,9 +66,6 @@ const AuthenticationPage = (props: Props) => {
       registerState.password,
       registerState.passwordConfirmation
     );
-    if (props.user !== undefined) {
-      props.history.push("/");
-    }
   };
 
   const handleLoginOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -98,25 +94,31 @@ const AuthenticationPage = (props: Props) => {
   };
   return (
     <React.Fragment>
-      {props.location.pathname === "/login" && (
-        <LoginForm
-          onSubmit={handleLoginSubmit}
-          onChange={handleLoginOnChange}
-        />
+      {props.user ? (
+        <Redirect to="/" />
+      ) : (
+        <div>
+          {props.location.pathname === "/login" && (
+            <LoginForm
+              onSubmit={handleLoginSubmit}
+              onChange={handleLoginOnChange}
+            />
+          )}
+          {props.location.pathname === "/signup" && (
+            <RegistrationForm
+              onSubmit={handleRegistrationSubmit}
+              onChange={handleRegisterOnChange}
+            />
+          )}
+          {/* {props.location.state === "lostPassword" && (
+          <LostPasswordForm
+            onSubmit={handleLostPasswordSubmit}
+            onChange={handleLostPasswordOnChange}
+          />
+        )} */}
+          {JSON.stringify(props.user)}
+        </div>
       )}
-      {props.location.pathname === "/signup" && (
-        <RegistrationForm
-          onSubmit={handleRegistrationSubmit}
-          onChange={handleRegisterOnChange}
-        />
-      )}
-      {/* {props.location.state === "lostPassword" && (
-        <LostPasswordForm
-          onSubmit={handleLostPasswordSubmit}
-          onChange={handleLostPasswordOnChange}
-        />
-      )} */}
-      {JSON.stringify(props.user)}
     </React.Fragment>
   );
 };

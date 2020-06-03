@@ -122,7 +122,7 @@ export const register = (
           user: {
             email,
             password,
-            passwordConfirmation,
+            password_confirmation: passwordConfirmation
           },
         },
         {

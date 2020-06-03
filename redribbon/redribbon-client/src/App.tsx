@@ -28,9 +28,8 @@ const App = (props: Props) => {
   const [userState, setUserState] = useState({});
 
   useEffect(() => {
-    if (props.user === undefined) {
-      props.checkLoggedIn();
-    }
+    console.log("App useEffect...");
+    props.checkLoggedIn();
   }, []);
 
   console.log("APP", window.location.pathname);
