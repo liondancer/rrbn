@@ -1,8 +1,14 @@
 import React from "react";
 
-const SettingsForm = () => {
+const SettingsForm = ({
+  onSubmit,
+  onChange,
+}: {
+  onSubmit: any;
+  onChange: any;
+}) => {
   return (
-    <form>
+    <form onSubmit={onSubmit} onChange={onChange}>
       <label>
         Email: <input name="email" placeholder="email"></input>
       </label>
@@ -10,9 +16,10 @@ const SettingsForm = () => {
         Password: <input name="password" placeholder="password"></input>
       </label>
       <label>
-        Last Name:
+        Confirm Password:
         <input name="confirmPassword" placeholder="confirm password"></input>
       </label>
+      <button type="submit">Update</button>
     </form>
   );
 };

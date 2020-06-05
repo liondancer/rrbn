@@ -5,11 +5,19 @@ class RegistrationsController < ApplicationController
       password: params['user']['password'],
       password_confirmation: params['user']['password_confirmation']
     )
-    if user
+    profile = Profile.create!(
+      first_name: params['user']['first_name'],
+      last_name: params['user']['last_name']
+    )
+    if user && profile
       session[:user_id] = user.id
       render json: {
         status: :created,
-        user: user
+        user: {
+          email: user.email,
+          first_name: profile.first_name,
+          last_name: profile.last_name
+        }
       }
     else
       render json: { status: :unprocessable_entity }

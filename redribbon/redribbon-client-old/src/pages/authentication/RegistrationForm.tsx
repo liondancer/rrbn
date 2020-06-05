@@ -10,6 +10,8 @@ const RegistrationForm = ({
   <form onSubmit={onSubmit} onChange={onChange}>
     <input name="email" type="email" placeholder="Email"></input>
     <input name="password" type="password" placeholder="Password"></input>
+    <input name="firstname" placeholder="First name"></input>
+    <input name="lastname" placeholder="Last name"></input>
     <input
       name="passwordConfirmation"
       type="password"

@@ -23,17 +23,35 @@ interface AuthenticationPageState {
   errors: string;
 }
 
-type Props = AuthenticationPageProps & IMapDispatchToProps & IMapStateToProps;
+// type Props = AuthenticationPageProps & IMapDispatchToProps & IMapStateToProps;
+// type Dispatch = ThunkDispatch<any, any, AppActions>;
 
-const AuthenticationPage = (props: Props) => {
+interface RootState extends RouteComponentProps {
+  isFetching: boolean;
+  user?: User;
+  // login: (email: string, password: string, isRemembered: boolean) => void;
+}
+
+const AuthenticationPage = () => {
   // const [authenticationState, setAuthenticationState] = useState(
   //   props.location.state
   // );
+
+  const dispatch = useDispatch();
+
+  const props = useSelector((state: RootState) => ({
+    isFetching: state.isFetching,
+    user: state.user,
+    location: state.location,
+    history: state.history,
+  }));
 
   const [lostPasswordState, setLostPasswordState] = useState("");
   const [registerState, setRegisterState] = useState({
     email: "",
     password: "",
+    firstnamae: "",
+    lastname: "",
     passwordConfirmation: "",
   });
   const [loginState, setLoginState] = useState({
@@ -41,8 +59,6 @@ const AuthenticationPage = (props: Props) => {
     password: "",
     isRemembered: true,
   });
-
-  // const [] = useEffect(() => {}, []);
 
   const handleLostPasswordSubmit = (event: SyntheticEvent) => {
     console.log("Lost Password Form submitted");
@@ -52,7 +68,9 @@ const AuthenticationPage = (props: Props) => {
   const handleLoginSubmit = (event: SyntheticEvent) => {
     console.log("Login Form submitted");
     event.preventDefault();
-    props.login(loginState.email, loginState.password, loginState.isRemembered);
+    dispatch(
+      login(loginState.email, loginState.password, loginState.isRemembered)
+    );
     if (props.user !== undefined) {
       props.history.push("/");
     }
@@ -61,10 +79,14 @@ const AuthenticationPage = (props: Props) => {
   const handleRegistrationSubmit = (event: SyntheticEvent) => {
     console.log("Registration Form submitted");
     event.preventDefault();
-    props.register(
-      registerState.email,
-      registerState.password,
-      registerState.passwordConfirmation
+    dispatch(
+      register(
+        registerState.email,
+        registerState.firstnamae,
+        registerState.lastname,
+        registerState.password,
+        registerState.passwordConfirmation
+      )
     );
   };
 
@@ -132,25 +154,28 @@ interface IMapDispatchToProps {
   login: (email: string, password: string, isRemembered: boolean) => void;
   register: (
     email: string,
+    firstname: string,
+    lastname: string,
     password: string,
     passwordConfirmation: string
   ) => void;
   // lostpassword: () => void;
 }
 
-const mapStateToProps = (
-  state: AppState,
-  ownProps: AuthenticationPageProps
-): IMapStateToProps => ({
-  isFetching: state.authentication.isFetching,
-  user: state.authentication.user,
-});
-const mapDispatchToProps = (
-  dispatch: ThunkDispatch<any, any, AppActions>,
-  ownProps: AuthenticationPageProps
-): IMapDispatchToProps => ({
-  login: bindActionCreators(login, dispatch),
-  register: bindActionCreators(register, dispatch),
-});
+// const mapStateToProps = (
+//   state: AppState,
+//   ownProps: AuthenticationPageProps
+// ): IMapStateToProps => ({
+//   isFetching: state.authentication.isFetching,
+//   user: state.authentication.user,
+// });
+// const mapDispatchToProps = (
+//   dispatch: ThunkDispatch<any, any, AppActions>,
+//   ownProps: AuthenticationPageProps
+// ): IMapDispatchToProps => ({
+//   login: bindActionCreators(login, dispatch),
+//   register: bindActionCreators(register, dispatch),
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthenticationPage);
+// export default connect(mapStateToProps, mapDispatchToProps)(AuthenticationPage);
+export default AuthenticationPage;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 import { RouteComponentProps } from "react-router-dom";
@@ -9,10 +9,20 @@ import ProfileForm from "./ProfileForm";
 import SettingsForm from "./SettingsForm";
 
 const SettingsPage = () => {
+  const [] = useState({});
+
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+  };
+
+  const handleOnSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // const { firstname, lastname } = event.target;
+  };
+
   return (
     <React.Fragment>
       <h1>Settings Page</h1>
-      <SettingsForm />
+      <SettingsForm onChange={handleOnChange} onSubmit={handleOnSubmit} />
     </React.Fragment>
   );
 };

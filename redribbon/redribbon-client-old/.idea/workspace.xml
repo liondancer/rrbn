@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6d19e367-17f9-4ba6-962f-7bae39f5f2f6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../redribbon-api/.idea/.generators" beforeDir="false" afterPath="$PROJECT_DIR$/../redribbon-api/.idea/.generators" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../redribbon-api/.idea/.rakeTasks" beforeDir="false" afterPath="$PROJECT_DIR$/../redribbon-api/.idea/.rakeTasks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../redribbon-api/.idea/redribbon-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../redribbon-api/.idea/redribbon-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../redribbon-api/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../redribbon-api/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../redribbon-api/.ruby-version" beforeDir="false" afterPath="$PROJECT_DIR$/../redribbon-api/.ruby-version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../redribbon-api/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/../redribbon-api/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../redribbon-api/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../redribbon-api/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../redribbon-api/bin/rails" beforeDir="false" afterPath="$PROJECT_DIR$/../redribbon-api/bin/rails" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../redribbon-api/bin/rake" beforeDir="false" afterPath="$PROJECT_DIR$/../redribbon-api/bin/rake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../redribbon-api/bin/spring" beforeDir="false" afterPath="$PROJECT_DIR$/../redribbon-api/bin/spring" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/authentication/AuthenticationPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/authentication/AuthenticationPage.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1ckxwyXHSVFIRfkamjW08qyvF2z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6d19e367-17f9-4ba6-962f-7bae39f5f2f6" name="Default Changelist" comment="" />
+      <created>1591086634522</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591086634522</updated>
+      <workItem from="1591086637850" duration="184000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="334" y="-901" key="SettingsEditor" timestamp="1591086780370">
+      <screen x="-455" y="-1080" width="2560" height="1080" />
+    </state>
+    <state x="334" y="-901" key="SettingsEditor/0.0.1680.1050/-455.-1080.2560.1080@-455.-1080.2560.1080" timestamp="1591086780370" />
+  </component>
+</project>

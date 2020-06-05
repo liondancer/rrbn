@@ -34,6 +34,8 @@ const loginSuccess = ({ user }: { user: User }): AuthenticationActionTypes => ({
   isFetching: false,
   user: {
     email: user.email,
+    firstname: user.firstname,
+    lastname: user.lastname,
   },
 });
 
@@ -69,6 +71,8 @@ const registerSuccess = ({
   isFetching: false,
   user: {
     email: user.email,
+    firstname: user.firstname,
+    lastname: user.lastname,
   },
 });
 
@@ -95,6 +99,8 @@ const checkLoggedInSuccess = ({
       isFetching: false,
       user: {
         email: user.email,
+        firstname: user.firstname,
+        lastname: user.lastname,
       },
     };
   }
@@ -107,6 +113,8 @@ const checkLoggedInFailure = (): AuthenticationActionTypes => ({
 
 export const register = (
   email: string,
+  firstname: string,
+  lastname: string,
   password: string,
   passwordConfirmation: string
 ) => {
@@ -121,8 +129,10 @@ export const register = (
         {
           user: {
             email,
+            firstname,
+            lastname,
             password,
-            password_confirmation: passwordConfirmation
+            password_confirmation: passwordConfirmation,
           },
         },
         {
