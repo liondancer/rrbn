@@ -12,7 +12,7 @@ module SessionsHelper
       user = User.find_by(id: user_id)
       if user&.authenticated?(cookies[:remember_token])
         log_in user
-        @current_user = user
+        @current_user
       end
     end
   end
@@ -24,13 +24,16 @@ module SessionsHelper
 
   # Remember a user in a persistent session.
   def remember(user)
+    # Create remember digest in DB
     user.remember
     # Expires 20 years from now
+    # creates signed (encrypted) user_id in persistent cookies
     cookies.permanent.signed[:user_id] = user.id
+    # added remember token in persistent cookies to be used to DB's remember digest
     cookies.permanent[:remember_token] = user.remember_token
   end
 
-  # Forgets persisten session.
+  # Forgets persistent session.
   def forget(user)
     user.forget
     cookies.delete(:user_id)
