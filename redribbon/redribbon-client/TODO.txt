@@ -1,0 +1,9 @@
+TODO List
+
+
+Things to learn/implement
+ - react-styleguidist
+    - https://react-styleguidist.js.org/
+    - https://create-react-app.dev/docs/developing-components-in-isolation#getting-started-with-styleguidist
+ - https://create-react-app.dev/docs/analyzing-the-bundle-size
+ 
